@@ -36,12 +36,20 @@ const useStyles = createUseStyles(theme => ({
     textAlign: 'right',
     paddingTop: 16
   },
-  body: {
+  body1: {
     gridRow: 2,
     gridColumn: 1,
   },
-  misc: {
+  body2: {
+    gridRow: 3,
+    gridColumn: 1,
+  },
+  misc1: {
     gridRow: 2,
+    gridColumn: 2,
+  },
+  misc2: {
+    gridRow: 3,
     gridColumn: 2,
   },
   name: {
@@ -83,12 +91,12 @@ const useStyles = createUseStyles(theme => ({
 }))
 
 function ResumeContent() {
-  const {container, head, contact, body, misc, name, synopsis, section, header, headerBold, date, detail} = useStyles()
+  const {container, head, contact, body1, misc1, body2, misc2, name, synopsis, section, header, headerBold, date, detail} = useStyles()
   return (
     <div className={container}>
       <div className={head}>
         <div className={name}>David Boles</div>
-        <div className={synopsis}><i>University junior passionate about robotics and embedded systems, seeking to<br/>help engineer a more sustainable future.</i></div>
+        <div className={synopsis}><i>Multidisciplinary engineer with a penchant for software. Passionate about helping build a more sustainable future.</i></div>
       </div>
       <div className={contact}>
         {false?
@@ -115,80 +123,66 @@ function ResumeContent() {
         <br/>
         <a href='https://www.davidbol.es/portfolio'>www.davidbol.es/portfolio</a>
       </div>
-      <div className={body}>
-
-        <div className={section}>Education</div>
-
-        <div className={header}>
-          <b className={headerBold}>Brown University</b><i>—3.9 GPA</i>
-          <div className={date}>September 2018–Present</div>
-        </div>
-        <components.ul>
-          {false ? 
-            <components.li>
-              Plants, Food, and People<span className={detail}>—planned for Spring 2021</span>
-            </components.li>
-          :
-            null
-          }
-          <components.li>
-            Machine Learning<span className={detail}>—planned for Spring 2021</span>
-          </components.li>
-          <components.li>
-            Control Systems Engineering<span className={detail}>—planned for Spring 2021</span>
-          </components.li>
-          <components.li>
-            Digital Signal Processing
-          </components.li>
-          <components.li>
-            Linear System Analysis
-          </components.li>
-          <components.li>
-            Sensors and Actuators for Real Systems
-          </components.li>
-          <components.li>
-            Introduction to Robotics<span className={detail}>—PID, Kalman Filters, and SLAM</span>
-          </components.li>
-          <components.li>
-            Topics in Collaborative Robotics
-          </components.li>
-          <components.li>
-            Design and Implementation of Programming Languages
-          </components.li>
-          <components.li>
-            Logic for Systems
-          </components.li>
-          <components.li>
-            Software Engineering
-          </components.li>
-
-
-          {/* <components.li>
-            Digital Electronics Systems Design
-          </components.li> */}
-
-          {/* <components.li>
-            Dynamics and Vibrations
-          </components.li> */}
-
-        </components.ul>
-
-        {/* <div className={header}>
-          <b>Design​ ​Tech​ ​High​ ​School and Community Colleges</b><i>—4.0{/*48 weighted* GPA</i>
-          <div className={date}>August 2014–June 2018</div>
-        </div>
-        <components.ul>
-          <components.li>
-            Design Lab 1-8<span className={detail}>—Stanford's "Design Thinking" Methodology</span>
-          </components.li>
-          <components.li>
-            Linux Administration
-          </components.li>
-        </components.ul> */}
+      <div className={body1}>
 
         <div className={section}>Experience</div>
 
         <div className={header}>
+          <b className={headerBold}>Tesla</b>—<i>Validation Engineer</i>
+          <div className={date}>June 2022–Present</div>
+        </div>
+        <components.ul>
+          <components.li>
+            Primary engineer responsible for project management, software, electrical design, bringup, and maintenance of Hardware-In-the-Loop (HIL) firmware testers for six vehicle subsystems, including brakes and air suspension.
+          </components.li>
+          <components.li>
+            Defined tester requirements in collaboration with firmware and integration engineers on my team. Worked extensively with electrical and mechanical teams.
+          </components.li>
+          <components.li>
+            Extended an in-house Software-In-the-Loop (SIL) simulation engine to have real-time HIL capabilities. Now used by several other teams.
+          </components.li>
+          <components.li>
+            The simulation engine, written in Rust, is controlled via a Python API, using PyO3.
+          </components.li>
+          <components.li>
+            Reliably achieved &lt;2ms latency and jitter while concurrently simulating controller firmware and physics models.
+          </components.li>
+          <components.li>
+            Conducted extensive mixed userspace and kernel tracing with LTTng to identify and mitigate unanticipated behavior in Linux' scheduling, filesystem, networking, and memory subsystems. 
+          </components.li>
+          <components.li>
+            Implemented integrations for CAN, Ethernet, and, planned for next quarter, EtherCAT as well as Modbus over RS-422.
+          </components.li>
+          <components.li>
+            Utilized Wireshark and libpcap to implement and troubleshoot custom protocols built on top of Ethernet's data link layer.
+          </components.li>
+          <components.li>
+            Contributed to MDF time-series data logger, which enabled test result visualization as well as further, automated post-processing and analysis.
+          </components.li>
+          <components.li>
+            Implemented Pytest plugins for firmware artifact handling, tester configuration and flashing, trace storage, and results reporting.
+          </components.li>
+          <components.li>
+            Helped maintain SIL CI infrastructure including working with SCons build scripts, Docker, and Jenkins.
+          </components.li>
+          <components.li>
+            Reviewed and validated FreeRTOS-based firmware written in C on an ad-hoc basis.
+          </components.li>
+        </components.ul>
+
+        <div className={header}>
+          <b className={headerBold}>Weekend Project</b>—<i>Time Series Data Visualizer</i>
+        </div>
+        <components.ul>
+          <components.li>
+            Prototype high-performance renderer for live data and MDF traces.
+          </components.li>
+          <components.li>
+            Web frontend accelerated with WASM and WebGPU; receives pre-decimated/resampled data from backend using WebSockets.
+          </components.li>
+        </components.ul>
+
+        {/* <div className={header}>
           <b className={headerBold}>Brown Space Engineering</b>—<i>Software Lead</i>
           <div className={date}>September 2018–Present</div>
         </div>
@@ -255,23 +249,103 @@ function ResumeContent() {
           <components.li>
             Developed a modular, semi-declarative, lazily-evaluated robot control architecture for Java.
           </components.li>
-        </components.ul>
+        </components.ul> */}
+        </div>
+
+      <div className={body2}>
+
+        <div className={section}>Education</div>
+
+        <div className={header}>
+          <b className={headerBold}>Brown University</b><i>—3.9 GPA</i>
+          <div className={date}>September 2018–May 2022</div>
+        </div>
+        
+        <components.p>
+          B.Sc. Computer Science
+          <components.ul>
+            <components.li>
+              Topics in Collaborative Robotics, Computer Vision, Deep Learning
+            </components.li>
+            <components.li>
+              Formal Proof and Verification, Logic for Systems
+            </components.li>
+          </components.ul>
+        </components.p>
+        
+        <components.p>
+          B.A. Engineering
+          <components.ul>
+            <components.li>
+              Instrumentation Design, Sensors and Actuators for Real Systems
+            </components.li>
+            <components.li>
+              Control Systems Engineering, Linear System Analysis, Digital Signal Processing
+            </components.li>
+            <components.li>
+              Digital Electronics System Design
+            </components.li>
+          </components.ul>
+        </components.p>
+        
+        {/* <div className={header}>
+          <b>Design​ ​Tech​ ​High​ ​School and Community Colleges</b><i>—4.0{/*48 weighted* GPA</i>
+          <div className={date}>August 2014–June 2018</div>
+        </div>
+        <components.ul>
+          <components.li>
+            Design Lab 1-8<span className={detail}>—Stanford's "Design Thinking" Methodology</span>
+          </components.li>
+          <components.li>
+            Linux Administration
+          </components.li>
+        </components.ul> */}
         
       </div>
-      <div className={misc}>
+      <div className={misc1}>
         <div className={section}>Skills</div>
 
         <components.p>
-          Software Engineering
           <components.ul>
             <components.li>
-              C
+              Rust
             </components.li>
             <components.li>
-              Python, NumPy, OpenCV
+              Python
+            </components.li>
+            <components.li>
+              Linux Administration
+            </components.li>
+            <components.li>
+              Git, SVN
+            </components.li>
+            <components.li>
+              Docker
+            </components.li>
+            <components.li>
+              Altium
+            </components.li>
+            <components.li>
+              Rapid Prototyping
+            </components.li>
+            <components.li>
+              User-Centered Design
+            </components.li>
+          </components.ul>
+        </components.p>
+
+        <div className={section}>Previous Experience</div>
+
+        <components.p>
+          <components.ul>
+            <components.li>
+              Embedded C
             </components.li>
             <components.li>
               MATLAB
+            </components.li>
+            <components.li>
+              Javascript, React
             </components.li>
             <components.li>
               Java
@@ -280,106 +354,30 @@ function ResumeContent() {
               Go
             </components.li>
             <components.li>
-              Javascript, React
-            </components.li>
-            <components.li>
-              Racket, Plait
-            </components.li>
-            <components.li>
-              Forge, Alloy
-            </components.li>
-            <components.li>
-              Promela (SPIN)
-            </components.li>
-            <components.li>
-              Git
-            </components.li>
-            <components.li>
-              Linux Administration
-            </components.li>
-            <components.li>
-              Network Configuration
-            </components.li>
-          </components.ul>
-        </components.p>
-
-        <components.p>
-          Mechanical Engineering
-          <components.ul>
-            <components.li>
               Solidworks
             </components.li>
-            <components.li>
-              Fusion 360
-            </components.li>
           </components.ul>
         </components.p>
 
-        <components.p>
-          Rapid Prototyping
-          <components.ul>
-            <components.li>
-              Soldering<br/>
-              (incl. surface mount)
-            </components.li>
-            <components.li>
-              3D Printing
-            </components.li>
-            <components.li>
-              Laser Cutting
-            </components.li>
-            <components.li>
-              CNC Milling and Routing
-            </components.li>
-          </components.ul>
-        </components.p>
-
-        <components.p>
-          User-Centered Design
-        </components.p>
-{/* 
-        <components.p>
-          Networking
-          <components.ul>
-            <components.li>
-              Cable Installation
-            </components.li>
-            <components.li>
-              Hardware Configuration
-            </components.li>
-          </components.ul>
-        </components.p> */}
-
-
-        <div className={section}>Awards</div>
-        
-        <div className={header}>
-          <b className={headerBold}>Rookie All-Star Award</b>
-        </div>
-        <components.p>
-          Awarded to B.R.E.A.D. at the Silicon Valley FIRST Robotics Competition Regional, 2016
-        </components.p>
-
-        <div className={section}>Languages</div>
-        <components.p>
-          French<span className={detail}>—9 Years</span>
-        </components.p>
-        <components.p>
-          Spanish<span className={detail}>—4 Years</span>
-        </components.p>
+      </div>
+      <div className={misc2}>
 
         <div className={section}>Other Interests</div>
         <components.p>
-          Food Fermentation
-        </components.p>
-        <components.p>
-          Hydroponic Gardening
-        </components.p>
-        <components.p>
-          Knitting
-        </components.p>
-        <components.p>
-          Ceramics
+          <components.ul>
+            <components.li>
+              Gardening
+            </components.li>
+            <components.li>
+              Baking
+            </components.li>
+            <components.li>
+              Ukulele
+            </components.li>
+            <components.li>
+              French
+            </components.li>
+          </components.ul>
         </components.p>
       </div>
     </div>
