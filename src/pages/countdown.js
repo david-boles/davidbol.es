@@ -9,7 +9,7 @@ const useStyles = createUseStyles(theme => ({
     position: "absolute",
     bottom: 0,
     right: 0,
-    width: "max(100vw, 3128*100vh/3084)",
+    width: "max(100dvw, 3128*100dvh/3084)",
     height: "auto",
     "z-index": -1,
   },
@@ -17,7 +17,7 @@ const useStyles = createUseStyles(theme => ({
     "font-family": ["Poetsen One", "sans-serif"],
     "font-weight": 400,
     "font-style": "normal",
-    "font-size": "max(40px, min(5vw, 60px))",
+    "font-size": "max(40px, min(5svw, 60px))",
     "color": "#FFF",
     "text-shadow": "-1px -1px 1px #000, 1px -1px 5px #000, -1px 1px 1px #000, 1px 1px 5px #000",
     padding: [20, 40]
@@ -29,7 +29,7 @@ const useStyles = createUseStyles(theme => ({
   ishSegment: {
     display: "inline-block",
     marginLeft: 12,
-    "font-size": "max(20px, min(2.5vw, 30px))",
+    "font-size": "max(20px, min(2.5svw, 30px))",
   }
 }))
 
