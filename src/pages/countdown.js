@@ -37,7 +37,7 @@ export default function Countdown() {
   const {background, countdown, countdownSegment, ishSegment} = useStyles()
 
   const calculateTimeLeft = () => {
-    const difference = new Date(1718481600000) - new Date();
+    const difference = new Date(1718604600000) - new Date();
     let timeLeft = {};
 
     let strings = []
