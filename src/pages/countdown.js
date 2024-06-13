@@ -48,7 +48,7 @@ export default function Countdown() {
         ["day", Math.floor(difference / (1000 * 60 * 60 * 24))],
         ["hour", Math.floor((difference / (1000 * 60 * 60)) % 24)],
         ["minute", Math.floor((difference / 1000 / 60) % 60)],
-        // ["second", Math.floor((difference / 1000) % 60)]
+        ["second", Math.floor((difference / 1000) % 60)]
       ];
 
       while (true) {
